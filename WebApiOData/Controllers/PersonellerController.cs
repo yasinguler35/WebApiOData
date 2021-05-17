@@ -13,6 +13,9 @@ namespace WebApiOData.Controllers
     {
         //tabloda select yapma
         //http://localhost:57962/odata/Personeller?$select=perId,perAd
+
+        //personel id si 1 olanı getir
+        //http://localhost:57962/odata/Personeller?$filter=perId eq 1
         private ODataServis db = new ODataServis();
         [EnableQuery]
         public IQueryable<Personeller> GetPersoneller()
