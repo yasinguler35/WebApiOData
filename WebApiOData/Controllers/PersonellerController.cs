@@ -19,5 +19,18 @@ namespace WebApiOData.Controllers
         {
             return db.personeller;
         }
+        //http://localhost:57962/odata/Personeller(3)/perAd
+        //http://localhost:57962/odata/Personeller(3)/perAd/$value
+        //neyi istiyorsak geri dönüş değeri olarak getden sonra ol yazılır GetperAd gibi
+        [HttpGet]
+        public IHttpActionResult GetperAd([FromODataUri] int key) 
+        {
+            var personel = db.personeller.Find(key);
+            if (personel==null)
+            {
+                return NotFound();
+            }
+            return Ok(personel.perAd);
+        }
     }
 }
