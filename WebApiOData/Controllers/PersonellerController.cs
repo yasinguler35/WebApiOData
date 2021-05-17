@@ -28,6 +28,9 @@ namespace WebApiOData.Controllers
 
         //döküman linki
         //https://www.odata.org/documentation/odata-version-2-0/uri-conventions/
+
+        //orderby kullanımı 
+        //http://localhost:57962/odata/Personeller?$orderby=perYas desc
         private ODataServis db = new ODataServis();
         [EnableQuery]
         public IQueryable<Personeller> GetPersoneller()
