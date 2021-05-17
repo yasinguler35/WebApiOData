@@ -22,6 +22,9 @@ namespace WebApiOData.Controllers
         //http://localhost:57962/odata/Personeller?$filter=startswith(perAd,'A')
         //perAd 'A' ile başlamayanlar
         // http://localhost:57962/odata/Personeller?$filter=startswith(perAd,'A') eq false
+
+        //perAd 'A' ile başlamayanlar ve yaşı 49 büyük olanların perAd ve perId getir
+        //http://localhost:57962/odata/Personeller?$filter=startswith(perAd,'A') eq false and (perYas gt 49) &$select=perAd,perId
         private ODataServis db = new ODataServis();
         [EnableQuery]
         public IQueryable<Personeller> GetPersoneller()
