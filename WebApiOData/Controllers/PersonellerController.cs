@@ -50,5 +50,13 @@ namespace WebApiOData.Controllers
             }
             return Ok(personel.perAd);
         }
+
+        //sadece tek personeli çağırmak için
+        //http://localhost:57962/odata/Personeller(1)?$select=perAd
+        [EnableQuery]
+        public SingleResult<Personeller> GetPersoneller([FromODataUri] int key)
+        {
+            return SingleResult.Create(db.personeller.Where(p=>p.perId==key));
+        }
     }
 }
