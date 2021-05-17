@@ -13,6 +13,8 @@ namespace WebApiOData.Controllers
     {
         //iki tabloyu birleştirme
         //http://localhost:57962/odata/PerIs?$expand=personeller
+        //select ve expand kullanıldı
+        //http://localhost:57962/odata/PerIs?$expand=personeller&$select=perId,isId,personeller
         private ODataServis db = new ODataServis();
         [EnableQuery]
         public IQueryable<PerIs> GetPerIs()
