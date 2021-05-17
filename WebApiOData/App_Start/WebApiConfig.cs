@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.OData.Builder;
+using System.Web.Http.OData.Extensions;
+using WebApiOData.Models;
 
 namespace WebApiOData
 {
@@ -9,8 +12,16 @@ namespace WebApiOData
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Personeller>("Personeller");
+            builder.EntitySet<Isler>("Isler");
+            builder.EntitySet<PerIs>("PerIs");
+            // OData Route
+            config.Routes.MapODataServiceRoute(
+                "DefaultOData",
+                "odata",
+                builder.GetEdmModel()
+                );
             // Web API routes
             config.MapHttpAttributeRoutes();
 
