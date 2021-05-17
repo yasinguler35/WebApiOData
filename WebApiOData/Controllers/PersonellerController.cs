@@ -80,5 +80,19 @@ namespace WebApiOData.Controllers
             return Created(personel);
         }
 
+        //personel silme
+        [HttpDelete]
+        public IHttpActionResult Delete([FromODataUri] int key)
+        {
+            var personelVarMi = db.personeller.Find(key);
+            if (personelVarMi==null)
+            {
+                return NotFound();
+            }
+            db.personeller.Remove(personelVarMi);
+            db.SaveChanges();
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
     }
 }
