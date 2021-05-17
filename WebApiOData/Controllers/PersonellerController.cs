@@ -9,7 +9,7 @@ using WebApiOData.Models;
 
 namespace WebApiOData.Controllers
 {
-    public class PersonellerController : ApiController
+    public class PersonellerController : ODataController
     {
         private ODataServis db = new ODataServis();
         [EnableQuery]
