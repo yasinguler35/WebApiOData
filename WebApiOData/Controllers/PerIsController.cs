@@ -11,6 +11,8 @@ namespace WebApiOData.Controllers
 {
     public class PerIsController : ODataController
     {
+        //iki tabloyu birleştirme
+        //http://localhost:57962/odata/PerIs?$expand=personeller
         private ODataServis db = new ODataServis();
         [EnableQuery]
         public IQueryable<PerIs> GetPerIs()
