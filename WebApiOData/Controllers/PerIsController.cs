@@ -15,6 +15,8 @@ namespace WebApiOData.Controllers
         //http://localhost:57962/odata/PerIs?$expand=personeller
         //select ve expand kullanıldı
         //http://localhost:57962/odata/PerIs?$expand=personeller&$select=perId,isId,personeller
+
+        //http://localhost:57962/odata/PerIs?$expand=personeller&$select=perId,isId,personeller/perAd,personeller/perSoyad
         private ODataServis db = new ODataServis();
         [EnableQuery]
         public IQueryable<PerIs> GetPerIs()
