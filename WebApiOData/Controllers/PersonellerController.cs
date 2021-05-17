@@ -18,8 +18,10 @@ namespace WebApiOData.Controllers
         //http://localhost:57962/odata/Personeller?$filter=perId eq 1
 
 
-        //perAd içinde  A olanlar 
+        //perAd 'A' ile başlayanlar
         //http://localhost:57962/odata/Personeller?$filter=startswith(perAd,'A')
+        //perAd 'A' ile başlamayanlar
+        // http://localhost:57962/odata/Personeller?$filter=startswith(perAd,'A') eq false
         private ODataServis db = new ODataServis();
         [EnableQuery]
         public IQueryable<Personeller> GetPersoneller()
