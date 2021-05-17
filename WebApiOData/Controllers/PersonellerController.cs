@@ -58,5 +58,18 @@ namespace WebApiOData.Controllers
         {
             return SingleResult.Create(db.personeller.Where(p=>p.perId==key));
         }
+
+        [HttpPut]
+        public IHttpActionResult Put([FromODataUri] int key,Delta<Personeller> personel)
+        {
+            Personeller putpersonelGuncelle = db.personeller.Find(key);
+            if (putpersonelGuncelle==null)
+            {
+                return NotFound();
+            }
+            personel.Put(putpersonelGuncelle);
+            db.SaveChanges();
+            return Updated(personel);
+        }
     }
 }
