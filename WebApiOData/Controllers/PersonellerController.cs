@@ -58,7 +58,7 @@ namespace WebApiOData.Controllers
         {
             return SingleResult.Create(db.personeller.Where(p=>p.perId==key));
         }
-
+        //personel güncelleme
         [HttpPut]
         public IHttpActionResult Put([FromODataUri] int key,Delta<Personeller> personel)
         {
@@ -71,5 +71,14 @@ namespace WebApiOData.Controllers
             db.SaveChanges();
             return Updated(personel);
         }
+        //personel ekleme 
+        [HttpPost]
+        public IHttpActionResult Post(Personeller personel)
+        {
+            db.personeller.Add(personel);
+            db.SaveChanges();
+            return Created(personel);
+        }
+
     }
 }
